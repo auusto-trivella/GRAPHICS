@@ -63,6 +63,16 @@ namespace IMPICC_INTERF.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img_Impic {
+            get {
+                object obj = ResourceManager.GetObject("img-Impic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lavagna {
             get {
                 object obj = ResourceManager.GetObject("lavagna", resourceCulture);

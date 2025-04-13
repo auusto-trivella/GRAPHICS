@@ -48,7 +48,12 @@ namespace IMPICC_INTERF
             titotlo = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
+            perso = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)perso).BeginInit();
             SuspendLayout();
             // 
             // exit
@@ -75,12 +80,13 @@ namespace IMPICC_INTERF
             tent.Size = new Size(167, 32);
             tent.TabIndex = 1;
             tent.Text = "TENTATIVI--->";
+            tent.Visible = false;
             tent.Click += tentativi_Click;
             // 
             // fac
             // 
             fac.BackColor = Color.Lime;
-            fac.Font = new System.Drawing.Font("Stencil", 12F, FontStyle.Bold);
+            fac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             fac.Location = new Point(607, 185);
             fac.Name = "fac";
             fac.Size = new Size(83, 34);
@@ -92,7 +98,7 @@ namespace IMPICC_INTERF
             // med
             // 
             med.BackColor = Color.Gold;
-            med.Font = new System.Drawing.Font("Stencil", 12F, FontStyle.Bold);
+            med.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             med.Location = new Point(708, 185);
             med.Name = "med";
             med.Size = new Size(79, 34);
@@ -104,10 +110,10 @@ namespace IMPICC_INTERF
             // dif
             // 
             dif.BackColor = Color.Red;
-            dif.Font = new System.Drawing.Font("Stencil", 12F, FontStyle.Bold);
+            dif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             dif.Location = new Point(807, 185);
             dif.Name = "dif";
-            dif.Size = new Size(99, 34);
+            dif.Size = new Size(108, 34);
             dif.TabIndex = 5;
             dif.Text = "DIFFICILE";
             dif.UseVisualStyleBackColor = false;
@@ -123,6 +129,7 @@ namespace IMPICC_INTERF
             lSbagliate.Size = new Size(175, 32);
             lSbagliate.TabIndex = 6;
             lSbagliate.Text = "LETTERE USATE";
+            lSbagliate.Visible = false;
             lSbagliate.Click += lSbagliate_Click;
             // 
             // jolly
@@ -135,6 +142,7 @@ namespace IMPICC_INTERF
             jolly.Size = new Size(75, 32);
             jolly.TabIndex = 7;
             jolly.Text = "JOLLY";
+            jolly.Visible = false;
             jolly.Click += jolly_Click;
             // 
             // scritLettera
@@ -144,6 +152,7 @@ namespace IMPICC_INTERF
             scritLettera.Name = "scritLettera";
             scritLettera.Size = new Size(100, 23);
             scritLettera.TabIndex = 8;
+            scritLettera.Visible = false;
             scritLettera.TextChanged += scritLettera_TextChanged;
             // 
             // scritParola
@@ -153,26 +162,33 @@ namespace IMPICC_INTERF
             scritParola.Name = "scritParola";
             scritParola.Size = new Size(100, 23);
             scritParola.TabIndex = 9;
+            scritParola.Visible = false;
             scritParola.TextChanged += scritParola_TextChanged;
             // 
             // lettera
             // 
+            lettera.BackColor = Color.MidnightBlue;
+            lettera.ForeColor = SystemColors.Control;
             lettera.Location = new Point(40, 329);
             lettera.Name = "lettera";
             lettera.Size = new Size(100, 45);
             lettera.TabIndex = 11;
             lettera.Text = "MANDA";
-            lettera.UseVisualStyleBackColor = true;
+            lettera.UseVisualStyleBackColor = false;
+            lettera.Visible = false;
             lettera.Click += lettera_Click;
             // 
             // parola
             // 
+            parola.BackColor = Color.MidnightBlue;
+            parola.ForeColor = SystemColors.Control;
             parola.Location = new Point(227, 329);
             parola.Name = "parola";
             parola.Size = new Size(100, 45);
             parola.TabIndex = 12;
             parola.Text = "MANDA";
-            parola.UseVisualStyleBackColor = true;
+            parola.UseVisualStyleBackColor = false;
+            parola.Visible = false;
             parola.Click += parola_Click;
             // 
             // punteggio
@@ -185,6 +201,7 @@ namespace IMPICC_INTERF
             punteggio.Size = new Size(188, 32);
             punteggio.TabIndex = 13;
             punteggio.Text = "PUNTEGGIO--->";
+            punteggio.Visible = false;
             punteggio.Click += punteggio_Click;
             // 
             // trat
@@ -198,7 +215,7 @@ namespace IMPICC_INTERF
             // 
             // titotlo
             // 
-            titotlo.Font = new System.Drawing.Font("Snap ITC", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            titotlo.Font = new System.Drawing.Font("MV Boli", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titotlo.Location = new Point(332, 11);
             titotlo.Name = "titotlo";
             titotlo.Size = new Size(376, 70);
@@ -213,22 +230,76 @@ namespace IMPICC_INTERF
             pictureBox1.Size = new Size(28, 32);
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
+            pictureBox1.Visible = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(556, 157);
+            label1.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 161);
+            label1.Location = new Point(511, 108);
             label1.Name = "label1";
-            label1.Size = new Size(412, 15);
+            label1.Size = new Size(481, 50);
             label1.TabIndex = 17;
-            label1.Text = "POTRAI SEMPRE CAMBIARE PAROLA E QUINDI DIFFICOLTA' CLICCANDO QUI";
+            label1.Text = "SCEGLI UNA DIFFICOLTA'";
+            // 
+            // perso
+            // 
+            perso.Image = Properties.Resources.img_Impic;
+            perso.Location = new Point(555, 238);
+            perso.Name = "perso";
+            perso.Size = new Size(508, 255);
+            perso.SizeMode = PictureBoxSizeMode.StretchImage;
+            perso.TabIndex = 18;
+            perso.TabStop = false;
+            perso.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Gabriola", 48F, FontStyle.Bold, GraphicsUnit.Point, 161);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(300, 185);
+            label2.Name = "label2";
+            label2.Size = new Size(286, 118);
+            label2.TabIndex = 19;
+            label2.Text = "HAI PERSO";
+            label2.Visible = false;
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Yi Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(520, 118);
+            label3.Name = "label3";
+            label3.Size = new Size(448, 38);
+            label3.TabIndex = 20;
+            label3.Text = "SE VUOI GIOCARE ANCORA SCEGLI UNA DIFFICOLTA'\r\n ALTRIMENTI CLICCA SUL PULSANTE ESCI";
+            label3.Visible = false;
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Gabriola", 48F, FontStyle.Bold, GraphicsUnit.Point, 161);
+            label4.ForeColor = Color.Lime;
+            label4.Location = new Point(303, 185);
+            label4.Name = "label4";
+            label4.Size = new Size(283, 118);
+            label4.TabIndex = 21;
+            label4.Text = "HAI VINTO";
+            label4.Visible = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.CornflowerBlue;
             ClientSize = new Size(983, 492);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(perso);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(titotlo);
@@ -249,6 +320,7 @@ namespace IMPICC_INTERF
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)perso).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -271,5 +343,9 @@ namespace IMPICC_INTERF
         private Label titotlo;
         private PictureBox pictureBox1;
         private Label label1;
+        private PictureBox perso;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

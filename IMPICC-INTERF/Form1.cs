@@ -6,7 +6,7 @@ namespace IMPICC_INTERF
     {
         static bool again = true;
         static int tentativi = 10, punti = 0;
-        static string parolaDaIndovinare = "", lUs = "LETTERE USATE--->", indovinate = "", errate = "",lc="";
+        static string parolaDaIndovinare = "", lUs = "LETTERE USATE--->", indovinate = "", errate = "", lc = "";
         static bool parolaCompleta = false, letteraIndovinata = false, parolaComp = false;
         static string l = "";
         static char[] pINd = { };
@@ -34,7 +34,23 @@ namespace IMPICC_INTERF
             parolaDaIndovinare = lines2[pS2];
             pINd = new string('_', parolaDaIndovinare.Length).ToCharArray();
             trat.Text = new string(pINd);
+            lSbagliate.Text = lUs;
+            jolly.Text = "JOLLY";
 
+            punteggio.Visible = true;
+            tent.Visible = true;
+            pictureBox1.Visible = true;
+            lettera.Visible = true;
+            jolly.Visible = true;
+            parola.Visible = true;
+            scritLettera.Visible = true;
+            scritParola.Visible = true;
+            lSbagliate.Visible = true;
+            label1.Visible = false;
+            perso.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
         }
 
         private void med_Click(object sender, EventArgs e)
@@ -51,6 +67,23 @@ namespace IMPICC_INTERF
             parolaDaIndovinare = lines1[pS1];
             pINd = new string('_', parolaDaIndovinare.Length).ToCharArray();
             trat.Text = new string(pINd);
+            lSbagliate.Text = lUs;
+            jolly.Text = "JOLLY";
+
+            punteggio.Visible = true;
+            tent.Visible = true;
+            pictureBox1.Visible = true;
+            lettera.Visible = true;
+            jolly.Visible = true;
+            parola.Visible = true;
+            scritLettera.Visible = true;
+            scritParola.Visible = true;
+            label1.Visible = false;
+            lSbagliate.Visible = true;
+            perso.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
         }
 
         private void dif_Click(object sender, EventArgs e)
@@ -67,6 +100,28 @@ namespace IMPICC_INTERF
             parolaDaIndovinare = lines3[pS3];
             pINd = new string('_', parolaDaIndovinare.Length).ToCharArray();
             trat.Text = new string(pINd);
+            lSbagliate.Text = lUs;
+            Random rand = new Random();
+            int nCas = rand.Next(parolaDaIndovinare.Length);
+
+            // Aiuto con un jolly per la modalità difficile
+            char j = parolaDaIndovinare[nCas];
+            jolly.Text = j.ToString();
+
+            punteggio.Visible = true;
+            tent.Visible = true;
+            pictureBox1.Visible = true;
+            lettera.Visible = true;
+            jolly.Visible = true;
+            parola.Visible = true;
+            scritLettera.Visible = true;
+            scritParola.Visible = true;
+            lSbagliate.Visible = true;
+            label1.Visible = false;
+            perso.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -95,7 +150,10 @@ namespace IMPICC_INTERF
             }
             if (tentativi == 0)
             {
-                Application.Exit();
+                perso.Image = Image.FromFile(".\\img-impic.png");
+                perso.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
             }
 
             scritLettera.Text = "";
@@ -123,6 +181,14 @@ namespace IMPICC_INTERF
             punteggio.Text = "PUNTEGGIO--->" + punti.ToString();
             lUs += l + ",";
             lSbagliate.Text = lUs.ToString();
+
+            if (trat.Text.Contains('_')==false)
+            {
+                label4.Visible = true;
+                label3.Visible = true;
+                perso.Visible=true;
+                perso.Image = Image.FromFile(".\\vinto-impi.png");
+            }
         }
 
         private void parola_Click(object sender, EventArgs e)
@@ -130,9 +196,13 @@ namespace IMPICC_INTERF
 
             if (parolaDaIndovinare == scritParola.Text)
             {
+                label4.Visible = true;
+                label3.Visible = true;
+                perso.Visible = true;
+                perso.Image = Image.FromFile(".\\vinto-impi.png");
                 parolaComp = true;
                 punti = punti * 10;
-                trat.Text=parolaDaIndovinare.ToString();
+                trat.Text = parolaDaIndovinare.ToString();
             }
             scritParola.Text = "";
         }
@@ -142,23 +212,13 @@ namespace IMPICC_INTERF
 
         }
 
-        private void lSbagliate_Click(object sender, EventArgs e) ///////////////USATE
+        private void lSbagliate_Click(object sender, EventArgs e) 
         {
 
         }
 
         private void jolly_Click(object sender, EventArgs e)
         {
-            if (pINd.Length == 6)
-            {
-                Random rand = new Random();
-                int nCas = rand.Next(parolaDaIndovinare.Length);
-
-                // Aiuto con un jolly per la modalità difficile
-                char j = parolaDaIndovinare[nCas];
-                jolly.Text = j.ToString();
-            }
-            
 
         }
 
@@ -180,7 +240,17 @@ namespace IMPICC_INTERF
 
         private void scritParola_TextChanged(object sender, EventArgs e)
         {
-            string lc=scritParola.Text;
+            string lc = scritParola.Text;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

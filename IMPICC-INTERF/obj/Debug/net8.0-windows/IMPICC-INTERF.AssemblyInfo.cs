@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IMPICC-INTERF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31928ec13288a23bab164a749599e262794cadc5")]
 [assembly: System.Reflection.AssemblyProductAttribute("IMPICC-INTERF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IMPICC-INTERF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
